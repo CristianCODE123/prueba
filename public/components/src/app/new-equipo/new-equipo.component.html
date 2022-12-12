@@ -1,0 +1,78 @@
+<div>
+   <!--modal-->
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" >
+             <!-- gce_id -->
+            
+            <!-- gce_nombre_equipo -->
+            <div class="mb-3 col-lg-4 col-sm-6">
+              <input required class="form-control" type="text" #gce_nombre_equipo2
+                placeholder="Nombre del equipo" />
+            </div>
+            <!-- gce_board -->
+            <div class="mb-3 col-lg-4 col-sm-6">
+              <input required class="form-control" type="text"  placeholder="Board" #gce_board2 />
+            </div>
+            <!-- gce_case -->
+            <div class="mb-3 col-lg-4 col-sm-6">
+              <input required class="form-control" type="text"  placeholder="Case" #gce_case2 />
+            </div>
+            <!-- gce_procesador -->
+            <div class="mb-3 col-lg-4 col-sm-6">
+              <input required class="form-control" type="text"  #gce_procesador2
+                placeholder="Procesador" />
+            </div>
+            <!-- gce_grafica -->
+            <div class="mb-3 col-lg-4 col-sm-6">
+              <input required class="form-control" type="text" placeholder="Gráfica" #gce_grafica2 />
+            </div>
+            <!-- gce_ram -->
+            <div class="mb-3 col-lg-4 col-sm-6">
+              <input required class="form-control" type="text"   placeholder="Ram" #gce_ram2 />
+            </div>
+            <!-- gce_disco_duro -->
+            <div class="mb-3 col-lg-4 col-sm-6">
+              <input required class="form-control" type="text"   #gce_disco_duro2 placeholder="Disco" />
+            </div>
+            <!-- gce_teclado -->
+            <div class="mb-3 col-lg-4 col-sm-6">
+              <input required class="form-control" type="text"  #gce_teclado2 placeholder="Teclado" />
+            </div>
+            <!-- gce_mouse -->
+            <div class="mb-3 col-lg-4 col-sm-6">
+              <input required class="form-control" type="text" #gce_mouse2 placeholder="Mouse" />
+            </div>
+            <!-- gce_pantalla -->
+            <div class="mb-3 col-sm-6 col-lg-6">
+              <input required class="form-control" type="text"   #gce_pantalla2 placeholder="Pantalla" />
+            </div>
+            <!-- gce_estado -->
+            <label class="mb-3 col-sm-6 col-lg-6 position-relative">
+              <div class="position-absolute">Estado</div>
+              <select class="form-select"   #gce_estado2>
+                <option value="0">Inactivo</option>
+                <option value="1" selected>Activo</option>
+              </select>
+            </label>
+            <div class="col-3 mb-3 display-grid">
+              <button class="btn btn-primary" data-bs-dismiss="modal" (click) = "update(equipo.gce_id,gce_nombre_equipo2.value, gce_board2.value, gce_case2.value, gce_procesador2.value, gce_grafica2.value, gce_ram2.value, gce_disco_duro2.value, gce_teclado2.value,gce_mouse2.value,gce_pantalla2.value,gce_estado2.value )" >
+                <i class="fas fa-plus-square me-2 vertical-align-middle" style="font-size: 1.2em"></i>
+                Guardar
+              </button>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

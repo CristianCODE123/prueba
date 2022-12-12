@@ -1,0 +1,115 @@
+<body>
+    <div class="container">
+      <div class="display-flex mb-4" style="height: 40px; width: 100%;">
+        <h6 style="flex: 1 1 auto;">Registro computadores</h6>
+       
+      </div>
+      <!-- Formulario de inserción -->
+      <form id="register-form" class="row" >
+        <!-- gce_nombre_equipo -->
+        <div class="mb-3 col-lg-4 col-sm-6">
+          <input  class="form-control" type="text" #gce_nombre_equipo placeholder="Nombre del equipo">
+        </div>
+        <!-- gce_board -->
+        <div class="mb-3 col-lg-4 col-sm-6">
+          <input  class="form-control" type="text" #gce_board placeholder="Board">
+        </div>
+        <!-- gce_case -->
+        <div class="mb-3 col-lg-4 col-sm-6">
+          <input  class="form-control" type="text" #gce_case placeholder="Case">
+        </div>
+        <!-- gce_procesador -->
+        <div class="mb-3 col-lg-4 col-sm-6">
+          <input  class="form-control" type="text" #gce_procesador placeholder="Procesador">
+        </div>
+        <!-- gce_grafica -->
+        <div class="mb-3 col-lg-4 col-sm-6">
+          <input  class="form-control" type="text" #gce_grafica placeholder="Gráfica">
+        </div>
+        <!-- gce_ram -->
+        <div class="mb-3 col-lg-4 col-sm-6">
+          <input  class="form-control" type="text" #gce_ram placeholder="Ram">
+        </div>
+        <!-- gce_disco_duro -->
+        <div class="mb-3 col-lg-4 col-sm-6">
+          <input  class="form-control" type="text" #gce_disco_duro placeholder="Disco">
+        </div>
+        <!-- gce_teclado -->
+        <div class="mb-3 col-lg-4 col-sm-6">
+          <input  class="form-control" type="text" #gce_teclado placeholder="Teclado">
+        </div>
+        <!-- gce_mouse -->
+        <div class="mb-3 col-lg-4 col-sm-6">
+          <input  class="form-control" type="text" #gce_mouse placeholder="Mouse">
+        </div>
+        <!-- gce_pantalla -->
+        <div class="mb-3 col-sm-6 col-lg-6">
+          <input  class="form-control" type="text" #gce_pantalla placeholder="Pantalla">
+        </div>
+        <!-- gce_estado -->
+        <label class="mb-3 col-sm-6 col-lg-6 position-relative">
+          <div class="position-absolute">Estado</div>
+          <select class="form-select" #gce_estado>
+            <option value="0">Inactivo</option>
+            <option value="1" selected>Activo</option>
+          </select>
+        </label>
+        <div class="col-12 mb-3 display-grid">
+          <button type="button" (click) = "add(gce_board.value, gce_case.value, gce_disco_duro.value, gce_estado.value, gce_grafica.value, gce_mouse.value, gce_nombre_equipo.value, gce_pantalla.value,gce_procesador.value,gce_ram.value,gce_teclado.value);  " class="btn btn-primary">
+            <i class="fas fa-plus-square me-2 vertical-align-middle" style="font-size: 1.2em;"></i>
+            Agregar
+          </button>
+        </div>
+      </form>
+
+<h6 class="ms-5">Computadores</h6>
+    <!-- Listado -->
+    <div class="card">
+      <div class="card-body">
+        <table id="list-table" class="table">
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Board</th>
+              <th>Case</th>
+              <th>Procesador</th>
+              <th>Gráfica</th>
+              <th>Ram</th>
+              <th>Disco duro</th>
+              <th>Teclado</th>
+              <th>Mouse</th>
+              <th>Pantalla</th>
+              <th>Estado</th>
+              <td></td>
+            </tr>
+          </thead>
+          <tbody *ngIf = "equipos.length">
+            <tr *ngFor = "let equipo of equipos" [style.backgroundColor] = "equipo.gce_estado == 0 ? 'red' : ''">
+                <td >{{ equipo.gce_nombre_equipo | titlecase }}</td>
+                <td>{{ equipo.gce_board | titlecase  }}</td>
+                <td>{{ equipo.gce_case | titlecase }}</td>
+                <td>{{ equipo.gce_procesador | titlecase }}</td>
+                <td>{{ equipo.gce_grafica | titlecase }}</td>
+                <td>{{ equipo.gce_ram | titlecase }}</td>
+                <td>{{ equipo.gce_disco_duro | titlecase }}</td>
+                <td>{{ equipo.gce_teclado | titlecase }}</td>
+                <td>{{ equipo.gce_mouse | titlecase }}</td>
+                <td>{{ equipo.gce_pantalla | titlecase }}</td>
+                <td><div class="form-check form-switch"  >
+                    <input type = "checkbox" checked  #InputEstado  name = "gce_valor_estado" class="form-check-input" type="checkbox" role="switch" ng-class = "checked" value = {{equipo.gce_estado}} (click) = "updateStatus(equipo.gce_id, InputEstado.value)">
+                </div></td>
+                    <td>
+                        <button  routerLink = "/edit/{{equipo.gce_id}}"  class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                        editar
+                      </button>
+                          <button  type='button' class='btn btn-primary'  (click) = "deleteEquipo(equipo.gce_id)">
+                            ELIMINAR
+                            </button>
+                     </td>
+                
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  
